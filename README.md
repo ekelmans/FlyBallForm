@@ -1,7 +1,7 @@
 # FlyBallForm
 Webbased flyball uitslagen formulieren vervanger
 
-Versie 1.0
+Versie 1.1
 --------------------------------------------------------------------------------------------------
 Zeer vroege versie van de code (en mijn eerste WEB API project :)
 
@@ -15,3 +15,5 @@ http://FlyForm.ekelmans.com/api/Heat
 get werkt
 put heeft een hardcoded update 
 post werkt niet
+
+import van FlyFormHeat in Access via WEB API werkt 
