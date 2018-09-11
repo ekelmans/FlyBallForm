@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -39,15 +39,17 @@ namespace FlyBallForm.Controllers
 
                 for (int i = 0; i < ds.Tables["Table"].Columns.Count; i++)
                 {
-                    csv += rw[i].ToString() + Convert.ToChar(9);
+                    csv += rw[i].ToString();
+
+                    //add tab separator (maar niet bij de laatste kolom)
+                    if (i < ds.Tables["Table"].Columns.Count -1) csv += Convert.ToChar(9);
                 }
 
                 csv += Environment.NewLine;
-                System.Diagnostics.Debug.WriteLine(csv);
 
             }
 
-
+            System.Diagnostics.Debug.WriteLine(csv);
 
             return csv;
 
@@ -75,7 +77,29 @@ namespace FlyBallForm.Controllers
 
             da.Fill(ds);
 
-            return JsonConvert.SerializeObject(ds, Newtonsoft.Json.Formatting.None);
+            string csv = "";
+
+
+            foreach (DataRow rw in ds.Tables["Table"].Rows)
+            {
+
+                for (int i = 0; i < ds.Tables["Table"].Columns.Count; i++)
+                {
+                    csv += rw[i].ToString();
+
+                    //add tab separator (maar niet bij de laatste kolom)
+                    if (i < ds.Tables["Table"].Columns.Count - 1) csv += Convert.ToChar(9);
+                }
+
+                csv += Environment.NewLine;
+
+            }
+
+            System.Diagnostics.Debug.WriteLine(csv);
+
+            return csv;
+
+            //return JsonConvert.SerializeObject(ds, Newtonsoft.Json.Formatting.None);
 
             //return ToStringAsXml(ds);
 
