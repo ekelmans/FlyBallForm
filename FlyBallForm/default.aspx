@@ -564,7 +564,25 @@
             ID="SqlDataSource2"
             runat="server"
             ConnectionString="<%$ ConnectionStrings:FlyFormConnectionString %>"
-            SelectCommand="SELECT * FROM [FlyFormHeat] WHERE [RaceID] = @RaceID AND BaankleurID = 1 ORDER BY [BaanKleurID], [HeatNr]" 
+            SelectCommand="
+SELECT  [HeatID]
+        ,[RaceID]
+        ,[HeatNr]
+        ,[BaanKleurID]
+        ,[TeamID]
+        ,[Tijd]
+        ,[ResultaatID]
+        ,isnull([Punten], 0) as Punten
+        ,[Hond1]
+        ,[Hond2]
+        ,[Hond3]
+        ,[Hond4]
+        ,[Hond5]
+        ,[Hond6]
+FROM    [FlyFormHeat] 
+WHERE   [RaceID] = @RaceID 
+AND BaankleurID = 2 
+ORDER BY [BaanKleurID], [HeatNr]" 
             UpdateCommand="
 update [FlyForm].[dbo].[FlyFormHeat]
 set	    Tijd		= @Tijd
@@ -598,7 +616,25 @@ where	 HeatID		= @HeatID">
             ID="SqlDataSource3"
             runat="server"
             ConnectionString="<%$ ConnectionStrings:FlyFormConnectionString %>"
-            SelectCommand="SELECT * FROM [FlyFormHeat] WHERE [RaceID] = @RaceID AND BaankleurID = 2 ORDER BY [BaanKleurID], [HeatNr]" 
+            SelectCommand="
+SELECT  [HeatID]
+        ,[RaceID]
+        ,[HeatNr]
+        ,[BaanKleurID]
+        ,[TeamID]
+        ,[Tijd]
+        ,[ResultaatID]
+        ,isnull([Punten], 0) as Punten
+        ,[Hond1]
+        ,[Hond2]
+        ,[Hond3]
+        ,[Hond4]
+        ,[Hond5]
+        ,[Hond6]
+FROM    [FlyFormHeat] 
+WHERE   [RaceID] = @RaceID 
+AND BaankleurID = 2 
+ORDER BY [BaanKleurID], [HeatNr]" 
             UpdateCommand="
 update [FlyForm].[dbo].[FlyFormHeat]
 set	    Tijd		= @Tijd

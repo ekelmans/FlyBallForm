@@ -31,12 +31,29 @@ namespace FlyBallForm.Controllers
 
             da.Fill(ds);
 
-            return JsonConvert.SerializeObject(ds, Newtonsoft.Json.Formatting.None);
+            string csv = "";
+        
 
-            //StringWriter sw = new StringWriter();
-            //ds.WriteXml(sw);
-            //return sw.ToString();
+            foreach (DataRow rw in ds.Tables["Table"].Rows)
+            {
 
+                for (int i = 0; i < ds.Tables["Table"].Columns.Count; i++)
+                {
+                    csv += rw[i].ToString() + Convert.ToChar(9);
+                }
+
+                csv += Environment.NewLine;
+                System.Diagnostics.Debug.WriteLine(csv);
+
+            }
+
+
+
+            return csv;
+
+            //return JsonConvert.SerializeObject(ds, Newtonsoft.Json.Formatting.None);
+
+            //return ToStringAsXml(ds);
         }
 
         // GET api/<controller>/117430
@@ -58,12 +75,18 @@ namespace FlyBallForm.Controllers
 
             da.Fill(ds);
 
-
             return JsonConvert.SerializeObject(ds, Newtonsoft.Json.Formatting.None);
-            //StringWriter sw = new StringWriter();
-            //ds.WriteXml(sw);
-            //return sw.ToString();
 
+            //return ToStringAsXml(ds);
+
+        }
+
+        public static string ToStringAsXml(DataSet ds)
+        {
+            StringWriter sw = new StringWriter();
+            ds.WriteXml(sw, XmlWriteMode.WriteSchema);
+            string s = sw.ToString();
+            return s;
         }
 
         // POST api/<controller>
