@@ -230,20 +230,11 @@ namespace FlyBallForm.Controllers
         private void ClearFlyFormHeat()
         {
             string conStr = ConfigurationManager.ConnectionStrings["FlyFormConnectionString"].ConnectionString;
-
             SqlConnection con = new SqlConnection(conStr);
-
             SqlCommand com = new SqlCommand("delete from [FlyForm].[dbo].[FlyFormHeat]", con);
-
             con.Open();
-
             com.ExecuteNonQuery();
-
             con.Close();
         }
-
-
-
     }
-
 }
