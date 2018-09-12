@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -64,7 +64,7 @@ namespace FlyBallForm
             MultiView1.ActiveViewIndex = 0;
             btnRed.Text = "Geselecteerd";
             btnBlue.Text = "";
-            FormView1.DataBind(); //refresh het form
+            //FormView1.DataBind(); //refresh het form
             MultiView1.DataBind();
             GridView1.DataBind();
         }
@@ -74,9 +74,10 @@ namespace FlyBallForm
             MultiView1.ActiveViewIndex = 1;
             btnRed.Text = "";
             btnBlue.Text = "Geselecteerd";
-            FormView1.DataBind(); //refresh het form
+            //FormView1.DataBind(); //refresh het form
             MultiView1.DataBind();
             GridView2.DataBind();
         }
     }
 }
+
