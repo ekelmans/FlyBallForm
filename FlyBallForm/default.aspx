@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="FlyBallForm.Default" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="FlyBallForm.Default" %>
 
 <!DOCTYPE html>
 
@@ -564,7 +564,7 @@
             ID="SqlDataSource2"
             runat="server"
             ConnectionString="<%$ ConnectionStrings:FlyFormConnectionString %>"
-            SelectCommand="
+           SelectCommand="
 SELECT  [HeatID]
         ,[RaceID]
         ,[HeatNr]
@@ -581,20 +581,20 @@ SELECT  [HeatID]
         ,[Hond6]
 FROM    [FlyFormHeat] 
 WHERE   [RaceID] = @RaceID 
-AND BaankleurID = 1 
+AND BaankleurID = 2 
 ORDER BY [BaanKleurID], [HeatNr]" 
             UpdateCommand="
 update [FlyForm].[dbo].[FlyFormHeat]
-set	    Tijd		= @Tijd
-		,ResultaatID= @ResultaatID
-		,Punten		= @Punten
-		,Hond1		= @Hond1
-		,Hond2		= @Hond2
-		,Hond3		= @Hond3
-		,Hond4		= @Hond4
-		,Hond5		= @Hond5
-		,Hond6		= @Hond6
-where	 HeatID		= @HeatID">
+set             Tijd                    = @Tijd
+                               ,ResultaatID= @ResultaatID
+                               ,Punten                = @Punten
+                               ,Hond1                 = @Hond1
+                               ,Hond2                 = @Hond2
+                               ,Hond3                 = @Hond3
+                               ,Hond4                 = @Hond4
+                               ,Hond5                 = @Hond5
+                               ,Hond6                 = @Hond6
+where  HeatID                 = @HeatID">
             <SelectParameters>
                 <asp:ControlParameter ControlID="FormView1" DefaultValue="11736" Name="RaceID" PropertyName="SelectedValue" Type="Int32" />
             </SelectParameters>
@@ -637,16 +637,16 @@ AND BaankleurID = 2
 ORDER BY [BaanKleurID], [HeatNr]" 
             UpdateCommand="
 update [FlyForm].[dbo].[FlyFormHeat]
-set	    Tijd		= @Tijd
-		,ResultaatID= @ResultaatID
-		,Punten		= @Punten
-		,Hond1		= @Hond1
-		,Hond2		= @Hond2
-		,Hond3		= @Hond3
-		,Hond4		= @Hond4
-		,Hond5		= @Hond5
-		,Hond6		= @Hond6
-where	 HeatID		= @HeatID">
+set             Tijd                    = @Tijd
+                               ,ResultaatID= @ResultaatID
+                               ,Punten                = @Punten
+                               ,Hond1                 = @Hond1
+                               ,Hond2                 = @Hond2
+                               ,Hond3                 = @Hond3
+                               ,Hond4                 = @Hond4
+                               ,Hond5                 = @Hond5
+                               ,Hond6                 = @Hond6
+where  HeatID                 = @HeatID">
             <SelectParameters>
                 <asp:ControlParameter ControlID="FormView1" DefaultValue="11736" Name="RaceID" PropertyName="SelectedValue" Type="Int32" />
             </SelectParameters>
