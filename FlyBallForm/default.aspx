@@ -581,7 +581,7 @@ SELECT  [HeatID]
         ,[Hond6]
 FROM    [FlyFormHeat] 
 WHERE   [RaceID] = @RaceID 
-AND BaankleurID = 2 
+AND BaankleurID = 1 
 ORDER BY [BaanKleurID], [HeatNr]" 
             UpdateCommand="
 update [FlyForm].[dbo].[FlyFormHeat]
