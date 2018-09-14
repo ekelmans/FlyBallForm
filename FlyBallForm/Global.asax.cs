@@ -10,8 +10,10 @@ using System.Web.Http.Routing;
 
 namespace FlyBallForm
 {
+
     public class Global : HttpApplication
     {
+
         void Application_Start(object sender, EventArgs e)
         {
             // Code that runs on application startup
@@ -20,6 +22,6 @@ namespace FlyBallForm
             GlobalConfiguration.Configuration.Routes.Add(
                 "default",
                 new HttpRoute("{controller}"));
-        }
     }
+}
 }

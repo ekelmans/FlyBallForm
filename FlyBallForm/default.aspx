@@ -548,6 +548,142 @@
 
         </div>
 
+        <br />
+        <br />
+        <br />
+        <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" class="table-style1" AutoGenerateEditButton="False" butt DataKeyNames="HeatID" >
+                        <RowStyle Width="10%" />
+                        <Columns>
+                            <asp:BoundField DataField="HeatID" HeaderText="HeatID" SortExpression="HeatID" Visible="false"/>
+
+                            <asp:TemplateField HeaderText="Heat" SortExpression="HeatNr">
+                                <EditItemTemplate>
+                                    <asp:Label ID="Label4" runat="server" Text='<%# Bind("HeatNr") %>'></asp:Label>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="Label4" runat="server" Text='<%# Bind("HeatNr") %>'></asp:Label>
+                                    &nbsp;
+                                    <asp:Label ID="Label6" runat="server" Text='<%# Bind("RaceID") %>'></asp:Label>
+                                    &nbsp;
+                                    <asp:Label ID="Label2" runat="server" Text='<%# Bind("HeatID") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+
+                            <asp:TemplateField HeaderText="H1" SortExpression="Hond1">
+                                <EditItemTemplate>
+                                    <asp:CheckBox ID="CheckBox1" runat="server" Checked='<%# Bind("Hond1") %>' CssClass="ChkBoxClass" />
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:CheckBox ID="CheckBox1" runat="server" Checked='<%# Bind("Hond1") %>' Enabled="false" CssClass="ChkBoxClass"/>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+
+                            <asp:TemplateField HeaderText="H2" SortExpression="Hond2">
+                                <EditItemTemplate>
+                                    <asp:CheckBox ID="CheckBox2" runat="server" Checked='<%# Bind("Hond2") %>' CssClass="ChkBoxClass" />
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:CheckBox ID="CheckBox2" runat="server" Checked='<%# Bind("Hond2") %>' Enabled="false" CssClass="ChkBoxClass"/>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+
+                            <asp:TemplateField HeaderText="H3" SortExpression="Hond3">
+                                <EditItemTemplate>
+                                    <asp:CheckBox ID="CheckBox3" runat="server" Checked='<%# Bind("Hond3") %>' CssClass="ChkBoxClass" />
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:CheckBox ID="CheckBox3" runat="server" Checked='<%# Bind("Hond3") %>' Enabled="false" CssClass="ChkBoxClass"/>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+
+                            <asp:TemplateField HeaderText="H4" SortExpression="Hond4">
+                                <EditItemTemplate>
+                                    <asp:CheckBox ID="CheckBox4" runat="server" Checked='<%# Bind("Hond4") %>' CssClass="ChkBoxClass" />
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:CheckBox ID="CheckBox4" runat="server" Checked='<%# Bind("Hond4") %>' Enabled="false" CssClass="ChkBoxClass"/>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+
+                            <asp:TemplateField HeaderText="H5" SortExpression="Hond5">
+                                <EditItemTemplate>
+                                    <asp:CheckBox ID="CheckBox5" runat="server" Checked='<%# Bind("Hond5") %>' CssClass="ChkBoxClass" />
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:CheckBox ID="CheckBox5" runat="server" Checked='<%# Bind("Hond5") %>' Enabled="false" CssClass="ChkBoxClass"/>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+
+                            <asp:TemplateField HeaderText="H6" SortExpression="Hond6">
+                                <EditItemTemplate>
+                                    <asp:CheckBox ID="CheckBox6" runat="server" Checked='<%# Bind("Hond6") %>' CssClass="ChkBoxClass" />
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:CheckBox ID="CheckBox6" runat="server" Checked='<%# Bind("Hond6") %>' Enabled="false" CssClass="ChkBoxClass"/>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+
+
+                            <asp:TemplateField HeaderText="Resultaat" SortExpression="ResultaatID">
+                                <EditItemTemplate>
+<%--                                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("ResultaatID") %>'></asp:TextBox>--%>
+                                    <asp:DropDownList ID="ddlResultaat" runat="server" DataValueField="ResultaatID" SelectedValue='<%# Bind("ResultaatID") %>' CssClass="ddlResultaat-style">
+                                        <asp:ListItem Value="1" >Win</asp:ListItem>
+                                        <asp:ListItem Value="2" >Lose</asp:ListItem>
+                                        <asp:ListItem Value="3" >Tie</asp:ListItem>
+                                        <asp:ListItem Value="4" >Lose NT</asp:ListItem>
+                                        <asp:ListItem Value="5" >Cancelled</asp:ListItem>
+                                        <asp:ListItem Value="6" >To be run</asp:ListItem>
+                                        <asp:ListItem Value="7" >UBT</asp:ListItem>
+                                    </asp:DropDownList>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <%--<asp:Label ID="Label1" runat="server" Text='<%# Bind("ResultaatID") %>'></asp:Label>--%>
+                                    <asp:DropDownList ID="ddlResultaat" runat="server" DataValueField="ResultaatID" SelectedValue='<%# Bind("ResultaatID") %>' Enabled="false" CssClass="ddlResultaat-style">
+                                        <asp:ListItem Value="1" >Win</asp:ListItem>
+                                        <asp:ListItem Value="2" >Lose</asp:ListItem>
+                                        <asp:ListItem Value="3" >Tie</asp:ListItem>
+                                        <asp:ListItem Value="4" >Lose NT</asp:ListItem>
+                                        <asp:ListItem Value="5" >Cancelled</asp:ListItem>
+                                        <asp:ListItem Value="6" >To be run</asp:ListItem>
+                                        <asp:ListItem Value="7" >UBT</asp:ListItem>
+                                    </asp:DropDownList>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+
+                            <asp:TemplateField HeaderText="Punten" SortExpression="Punten">
+                                <EditItemTemplate>
+                                    <asp:DropDownList ID="ddlPunten" runat="server" DataValueField="Punten" SelectedValue='<%# Bind("Punten") %>' CssClass="ddlPunten-style">
+                                        <asp:ListItem Value="0" >0</asp:ListItem>
+                                        <asp:ListItem Value="1" >1</asp:ListItem>
+                                        <asp:ListItem Value="2" >2</asp:ListItem>
+                                    </asp:DropDownList>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:DropDownList ID="ddlPunten" runat="server" DataValueField="Punten" SelectedValue='<%# Bind("Punten") %>' Enabled="false" CssClass="ddlPunten-style">
+                                        <asp:ListItem Value="0" >0</asp:ListItem>
+                                        <asp:ListItem Value="1" >1</asp:ListItem>
+                                        <asp:ListItem Value="2" >2</asp:ListItem>
+                                    </asp:DropDownList>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+
+                            <asp:TemplateField HeaderText="Tijd" SortExpression="Tijd" >
+                                <EditItemTemplate>
+                                    <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Tijd") %>' type="number" CssClass="TijdTextbox-style"></asp:TextBox>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="Label3" runat="server" Text='<%# Bind("Tijd") %>' CssClass="TijdTextbox-style"></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+
+                            <asp:CommandField ShowEditButton="True" />
+
+                        </Columns>
+                    </asp:GridView>
+
+
+
 
         <asp:SqlDataSource 
             ID="SqlDataSource1" 
@@ -673,6 +809,11 @@ where  HeatID                 = @HeatID">
                 <asp:ControlParameter ControlID="FormView1" DefaultValue="11763" Name="RaceID" PropertyName="SelectedValue" Type="Int32" />
             </SelectParameters>
         </asp:SqlDataSource>
+
+
+        <asp:SqlDataSource ID="SqlDataSource5" runat="server"></asp:SqlDataSource>
+
+
 
     </form>
 </body>

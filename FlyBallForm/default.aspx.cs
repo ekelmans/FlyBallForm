@@ -5,12 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.OleDb;
-
+using FlyBallForm.Controllers;
 
 namespace FlyBallForm
 {
     public partial class Default : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -20,6 +21,10 @@ namespace FlyBallForm
                 btnBlue.Text = "";
 
                 Session["Ringnummer"] = 1;
+
+                //GridView3.DataSource = Heats;
+
+                
             }
 
 
@@ -47,6 +52,7 @@ namespace FlyBallForm
             FormView1.PageIndex -= 1;
             FormView1.DataBind(); //refresh het form
         }
+
         protected void btnRing1_Click(object sender, ImageClickEventArgs e)
         {
             Session["Ringnummer"] = 1;
