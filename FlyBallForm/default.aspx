@@ -22,15 +22,29 @@
         }
         .btnCol-style {
             width: 5%;
+            align-content:center
         }        
         .lblCol-style {
             text-align: right;
-            width: 15%;
+            width: 10%;
         }
         .dataCol-style {
-            text-align: left;
-            width: 30%;
+            text-align: center;
+            width: 20%;
         }
+        .TeamNaamRed-style {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif; 
+            font-size: xx-large;
+            color:#F78181
+        }
+        .TeamNaamBlue-style {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif; 
+            font-size: xx-large;
+            color:#819FF7
+        }
+
         .ddlResultaat-style {
             width: 110px;
             font-family: Arial, Helvetica, sans-serif; 
@@ -76,38 +90,33 @@
             text-align: center;
         }
 
-    </style>
+
+        </style>
 </head>
 <body bgcolor="black">
     <form id="form1" runat="server">
 
-        <asp:FormView ID="FormView1" runat="server" AllowPaging="False" DataSourceID="SqlDataSource1" width="100%" DataKeyNames="RaceID" >
+        <asp:FormView ID="FormView1" runat="server" DataSourceID="SqlDataSource1" width="100%" DataKeyNames="RaceID" >
             <ItemTemplate>
                 <table align="center" class="table-style1" >
                     <tr>
-                        <td class="btnCol-style" rowspan="3">
+                        <td class="btnCol-style" rowspan="2">
                             <asp:ImageButton ID="btnRing1" runat="server" ImageUrl="~/images/1.png" OnClick="btnRing1_Click" />
                         </td>
                         <td class="lblCol-style">Lokatie:</td>
                         <td class="dataCol-style">
                             <asp:Label ID="WDLabel" runat="server" Text='<%# Bind("WD") %>' />
                         </td>
-                        <td class="lblCol-style">RaceID:</td>
+                        <td class="lblCol-style">Ring: </td>
                         <td class="dataCol-style">
-                            <asp:Label ID="RaceIDLabel" runat="server" Text='<%# Bind("RaceID") %>' />
+                            <asp:Label ID="RingNummerLabel" runat="server" Text='<%# Bind("RingNummer") %>' />
                         </td>
-                        <td class="btnCol-style" rowspan="3">
-                            <asp:ImageButton ID="btnPlus" runat="server" ImageUrl="~/images/Plus.png" OnClick="btnPlus_Click"  />
-                        </td>
-                    </tr>
-                    <tr>
                         <td class="lblCol-style">Dagdeel:</td>
                         <td class="dataCol-style">
                             <asp:Label ID="DagdeelLabel" runat="server" Text='<%# Bind("Dagdeel") %>' />
                         </td>
-                        <td class="lblCol-style">Ring: </td>
-                        <td class="dataCol-style">
-                            <asp:Label ID="RingNummerLabel" runat="server" Text='<%# Bind("RingNummer") %>' />
+                        <td class="btnCol-style" rowspan="2">
+                            <asp:ImageButton ID="btnPlus" runat="server" ImageUrl="~/images/Plus.png" OnClick="btnPlus_Click"  />
                         </td>
                     </tr>
                     <tr>
@@ -115,74 +124,86 @@
                         <td class="dataCol-style">
                             <asp:Label ID="ProgrammaNrLabel" runat="server" Text='<%# Bind("ProgrammaNr") %>' />
                         </td>
-                        <td class="lblCol-style">Type: </td>
+                        <td class="lblCol-style">Gelopen:</td>
                         <td class="dataCol-style">
-                            <asp:Label ID="RTNLabel" runat="server" Text='<%# Bind("RTN") %>' />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="btnCol-style">&nbsp;</td>
-                        <td class="lblCol-style">Divisie: </td>
-                        <td class="dataCol-style">
-                            <asp:Label ID="DivisieNummerLabel" runat="server" Text='<%# Bind("DivisieNummer") %>' />
-                        </td>
-                        <td class="lblCol-style">Race: </td>
-                        <td class="dataCol-style">
-                            <asp:Label ID="RaceNrLabel" runat="server" Text='<%# Bind("RaceNr") %>' />
-                        </td>
-                        <td class="btnCol-style"></td>
-                    </tr>
-                    <tr>
-                        <td class="btnCol-style" rowspan="3">
-                            <asp:ImageButton ID="btnRing2" runat="server" ImageUrl="~/images/2.png" OnClick="btnRing2_Click" />
+                            <asp:Label ID="GelopenLabel" runat="server" Text='<%# Bind("Gelopen") %>' />
                         </td>
                         <td class="lblCol-style">Tijd: </td>
                         <td class="dataCol-style">
                             <asp:Label ID="DTLabel" runat="server" Text='<%# Bind("DT", "{0:HH:mm}") %>' />
                         </td>
-                        <td class="lblCol-style">Gelopen:</td>
+                    </tr>
+                    <tr>
+                        <td class="btnCol-style" rowspan="3">
+                            <asp:ImageButton ID="btnRing2" runat="server" ImageUrl="~/images/2.png" OnClick="btnRing2_Click" />
+                        </td>
+                        <td class="lblCol-style">Divisie: </td>
                         <td class="dataCol-style">
-                            <asp:Label ID="GelopenLabel" runat="server" Text='<%# Bind("Gelopen") %>' />
+                            <asp:Label ID="DivisieNummerLabel" runat="server" Text='<%# Bind("DivisieNummer") %>' />
+
+                        </td>
+                        <td class="lblCol-style">Race: </td>
+                        <td class="dataCol-style">
+                            <asp:Label ID="RaceNrLabel" runat="server" Text='<%# Bind("RaceNr") %>' />
+                        </td>
+                        <td class="lblCol-style">Type: </td>
+                        <td class="dataCol-style">
+                            <asp:Label ID="RTNLabel" runat="server" Text='<%# Bind("RTN") %>' />
                         </td>
                         <td class="btnCol-style" rowspan="3">
                             <asp:ImageButton ID="btnMin" runat="server" ImageUrl="~/images/Minus.png" OnClick="btnMin_Click" />
                         </td>
                     </tr>
                     <tr>
-                        <td class="lblCol-style">Rood: </td>
-                        <td class="dataCol-style">
-                            <asp:Label ID="RoodLabel" runat="server" Text='<%# Bind("Rood") %>' />
+                        <td class="lblCol-style">
+                            Finale:
                         </td>
-                        <td class="lblCol-style">Blauw: </td>
                         <td class="dataCol-style">
-                            <asp:Label ID="BlauwLabel" runat="server" Text='<%# Bind("Blauw") %>' />
+                            <asp:Label ID="FinaleLabel" runat="server" Text='<%# Eval("Finale").Equals("F") ? "Finale":"" %>' />
                         </td>
+                        <td class="lblCol-style">Herkansing:</td>
+                        <td class="dataCol-style">
+                            <asp:Label ID="HerkansingLabel" runat="server" Text='<%# Eval("Herkansing").Equals("H") ? "Herkansing":"" %>' />
+                        </td>
+                        <td class="lblCol-style">&nbsp;</td>
+                        <td class="dataCol-style">&nbsp;</td>
                     </tr>
                     <tr>
-                        <td class="lblCol-style">Finale: </td>
-                        <td class="dataCol-style">
-                            <asp:Label ID="FinaleLabel" runat="server" Text='<%# Bind("Finale") %>' />
+                        <td class="lblCol-style">Div Ubt:</td>
+                        <td class="dataCol-style"><asp:Label ID="DivUBTLabel" runat="server" Text='<%# Bind("DivUBT") %>' /></td>
+                        <td class="lblCol-style">Rood Ubt:</td>
+                        <td class="dataCol-style"><asp:Label ID="RUBTLabel" runat="server" Text='<%# Bind("RUBT") %>' /></td>
+                        <td class="lblCol-style">Blauw Ubt:</td>
+                        <td class="dataCol-style"><asp:Label ID="BUBTLabel" runat="server" Text='<%# Bind("BUBT") %>' /></td>
+                    </tr>
+                    <tr>
+                        <td class="btnCol-style">
+                            <asp:ImageButton ID="btnRed" runat="server" ImageUrl="~/images/Arrow1 Right.png" OnClick="btnRed_Click" />
+                            <br />
+                            <asp:TextBox ID="txtRed" runat="server" BackColor="#F78181" BorderStyle="None" Width="48px" style="text-align: center" Text="Actief"></asp:TextBox>
                         </td>
-                        <td class="lblCol-style">Herkansing: </td>
-                        <td class="dataCol-style">
-                            <asp:Label ID="HerkansingLabel" runat="server" Text='<%# Bind("Herkansing") %>' />
+                        <td class="TeamNaamRed-style" colspan="3">
+                            <asp:Label ID="RoodLabel" runat="server" Text='<%# Bind("Rood") %>' />
+                            <br />
+                        </td>
+                        <td class="TeamNaamBlue-style" colspan="3">
+                            <asp:Label ID="BlauwLabel" runat="server" Text='<%# Bind("Blauw") %>' />
+                            <br />
+                        </td>
+                        <td class="btnCol-style">
+                            <asp:ImageButton ID="btnBlue" runat="server" ImageUrl="~/images/Arrow1 Left.png" OnClick="btnBlue_Click" />
+                            <br />
+                            <asp:TextBox ID="txtBlue" runat="server" BackColor="#819FF7" BorderStyle="None" style="text-align: center" Width="48px" Visible="False" ></asp:TextBox>
                         </td>
                     </tr>
 
                 </table>
 
             </ItemTemplate>
+
+
         </asp:FormView>
 
-        <div style="width: 100%; overflow: hidden; background-color:white;" >
-            <div style="width:40%; float: left;">  
-                <asp:Button ID="btnRed" runat="server" Text=""  CssClass="btnTab-style" BackColor="#F78181" OnClick="btnRed_Click" />
-            </div>
-            <div style="width:40%; float: right;">
-                <asp:Button ID="btnBlue" runat="server" Text="" CssClass="btnTab-style" BackColor="#819FF7" OnClick="btnBlue_Click" />
-            </div>
-        </div>
-        
         <div style="width: 100%; overflow: hidden; background-color:white;">
             <asp:MultiView ID="MultiView1" ActiveViewIndex="0" runat="server">
                 <asp:View ID="View1" runat="server">
@@ -233,10 +254,11 @@
                         </ItemTemplate>
                     </asp:FormView>
 
-                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" class="table-style1" AutoGenerateEditButton="False" butt DataKeyNames="HeatID" >
-                        <RowStyle Width="10%" />
+                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" class="table-style1" AutoGenerateEditButton="False" butt DataKeyNames="HeatID" OnRowDataBound="GridView1_RowDataBound" >
+                        <RowStyle Width="10%" BackColor="Red" />
                         <Columns>
-                            <asp:BoundField DataField="HeatID" HeaderText="HeatID" SortExpression="HeatID" Visible="false"/>
+                            <asp:BoundField DataField="HeatID" HeaderText="HeatID" SortExpression="HeatID" Visible="true"/>
+                            <asp:BoundField DataField="Error" HeaderText="Error" SortExpression="Error" Visible="true"/>
 
                             <asp:TemplateField HeaderText="Heat" SortExpression="HeatNr">
                                 <EditItemTemplate>
@@ -244,10 +266,6 @@
                                 </EditItemTemplate>
                                 <ItemTemplate>
                                     <asp:Label ID="Label4" runat="server" Text='<%# Bind("HeatNr") %>'></asp:Label>
-                                    &nbsp;
-                                    <asp:Label ID="Label2" runat="server" Text='<%# Bind("RaceID") %>'></asp:Label>
-                                    &nbsp;
-                                    <asp:Label ID="Label5" runat="server" Text='<%# Bind("HeatID") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
 
@@ -413,10 +431,11 @@
                         </ItemTemplate>
                     </asp:FormView>
 
-                    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" class="table-style1" AutoGenerateEditButton="False" butt DataKeyNames="HeatID" >
+                    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" class="table-style1" AutoGenerateEditButton="False" butt DataKeyNames="HeatID" OnRowDataBound="GridView2_RowDataBound" >
                         <RowStyle Width="10%" />
                         <Columns>
-                            <asp:BoundField DataField="HeatID" HeaderText="HeatID" SortExpression="HeatID" Visible="false"/>
+                            <asp:BoundField DataField="HeatID" HeaderText="HeatID" SortExpression="HeatID" Visible="true"/>
+                            <asp:BoundField DataField="Error" HeaderText="Error" SortExpression="Error" Visible="true"/>
 
                             <asp:TemplateField HeaderText="Heat" SortExpression="HeatNr">
                                 <EditItemTemplate>
@@ -424,10 +443,6 @@
                                 </EditItemTemplate>
                                 <ItemTemplate>
                                     <asp:Label ID="Label4" runat="server" Text='<%# Bind("HeatNr") %>'></asp:Label>
-                                    &nbsp;
-                                    <asp:Label ID="Label6" runat="server" Text='<%# Bind("RaceID") %>'></asp:Label>
-                                    &nbsp;
-                                    <asp:Label ID="Label2" runat="server" Text='<%# Bind("HeatID") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
 
@@ -548,142 +563,6 @@
 
         </div>
 
-        <br />
-        <br />
-        <br />
-        <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" class="table-style1" AutoGenerateEditButton="False" butt DataKeyNames="HeatID" >
-                        <RowStyle Width="10%" />
-                        <Columns>
-                            <asp:BoundField DataField="HeatID" HeaderText="HeatID" SortExpression="HeatID" Visible="false"/>
-
-                            <asp:TemplateField HeaderText="Heat" SortExpression="HeatNr">
-                                <EditItemTemplate>
-                                    <asp:Label ID="Label4" runat="server" Text='<%# Bind("HeatNr") %>'></asp:Label>
-                                </EditItemTemplate>
-                                <ItemTemplate>
-                                    <asp:Label ID="Label4" runat="server" Text='<%# Bind("HeatNr") %>'></asp:Label>
-                                    &nbsp;
-                                    <asp:Label ID="Label6" runat="server" Text='<%# Bind("RaceID") %>'></asp:Label>
-                                    &nbsp;
-                                    <asp:Label ID="Label2" runat="server" Text='<%# Bind("HeatID") %>'></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-
-                            <asp:TemplateField HeaderText="H1" SortExpression="Hond1">
-                                <EditItemTemplate>
-                                    <asp:CheckBox ID="CheckBox1" runat="server" Checked='<%# Bind("Hond1") %>' CssClass="ChkBoxClass" />
-                                </EditItemTemplate>
-                                <ItemTemplate>
-                                    <asp:CheckBox ID="CheckBox1" runat="server" Checked='<%# Bind("Hond1") %>' Enabled="false" CssClass="ChkBoxClass"/>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-
-                            <asp:TemplateField HeaderText="H2" SortExpression="Hond2">
-                                <EditItemTemplate>
-                                    <asp:CheckBox ID="CheckBox2" runat="server" Checked='<%# Bind("Hond2") %>' CssClass="ChkBoxClass" />
-                                </EditItemTemplate>
-                                <ItemTemplate>
-                                    <asp:CheckBox ID="CheckBox2" runat="server" Checked='<%# Bind("Hond2") %>' Enabled="false" CssClass="ChkBoxClass"/>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-
-                            <asp:TemplateField HeaderText="H3" SortExpression="Hond3">
-                                <EditItemTemplate>
-                                    <asp:CheckBox ID="CheckBox3" runat="server" Checked='<%# Bind("Hond3") %>' CssClass="ChkBoxClass" />
-                                </EditItemTemplate>
-                                <ItemTemplate>
-                                    <asp:CheckBox ID="CheckBox3" runat="server" Checked='<%# Bind("Hond3") %>' Enabled="false" CssClass="ChkBoxClass"/>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-
-                            <asp:TemplateField HeaderText="H4" SortExpression="Hond4">
-                                <EditItemTemplate>
-                                    <asp:CheckBox ID="CheckBox4" runat="server" Checked='<%# Bind("Hond4") %>' CssClass="ChkBoxClass" />
-                                </EditItemTemplate>
-                                <ItemTemplate>
-                                    <asp:CheckBox ID="CheckBox4" runat="server" Checked='<%# Bind("Hond4") %>' Enabled="false" CssClass="ChkBoxClass"/>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-
-                            <asp:TemplateField HeaderText="H5" SortExpression="Hond5">
-                                <EditItemTemplate>
-                                    <asp:CheckBox ID="CheckBox5" runat="server" Checked='<%# Bind("Hond5") %>' CssClass="ChkBoxClass" />
-                                </EditItemTemplate>
-                                <ItemTemplate>
-                                    <asp:CheckBox ID="CheckBox5" runat="server" Checked='<%# Bind("Hond5") %>' Enabled="false" CssClass="ChkBoxClass"/>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-
-                            <asp:TemplateField HeaderText="H6" SortExpression="Hond6">
-                                <EditItemTemplate>
-                                    <asp:CheckBox ID="CheckBox6" runat="server" Checked='<%# Bind("Hond6") %>' CssClass="ChkBoxClass" />
-                                </EditItemTemplate>
-                                <ItemTemplate>
-                                    <asp:CheckBox ID="CheckBox6" runat="server" Checked='<%# Bind("Hond6") %>' Enabled="false" CssClass="ChkBoxClass"/>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-
-
-                            <asp:TemplateField HeaderText="Resultaat" SortExpression="ResultaatID">
-                                <EditItemTemplate>
-<%--                                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("ResultaatID") %>'></asp:TextBox>--%>
-                                    <asp:DropDownList ID="ddlResultaat" runat="server" DataValueField="ResultaatID" SelectedValue='<%# Bind("ResultaatID") %>' CssClass="ddlResultaat-style">
-                                        <asp:ListItem Value="1" >Win</asp:ListItem>
-                                        <asp:ListItem Value="2" >Lose</asp:ListItem>
-                                        <asp:ListItem Value="3" >Tie</asp:ListItem>
-                                        <asp:ListItem Value="4" >Lose NT</asp:ListItem>
-                                        <asp:ListItem Value="5" >Cancelled</asp:ListItem>
-                                        <asp:ListItem Value="6" >To be run</asp:ListItem>
-                                        <asp:ListItem Value="7" >UBT</asp:ListItem>
-                                    </asp:DropDownList>
-                                </EditItemTemplate>
-                                <ItemTemplate>
-                                    <%--<asp:Label ID="Label1" runat="server" Text='<%# Bind("ResultaatID") %>'></asp:Label>--%>
-                                    <asp:DropDownList ID="ddlResultaat" runat="server" DataValueField="ResultaatID" SelectedValue='<%# Bind("ResultaatID") %>' Enabled="false" CssClass="ddlResultaat-style">
-                                        <asp:ListItem Value="1" >Win</asp:ListItem>
-                                        <asp:ListItem Value="2" >Lose</asp:ListItem>
-                                        <asp:ListItem Value="3" >Tie</asp:ListItem>
-                                        <asp:ListItem Value="4" >Lose NT</asp:ListItem>
-                                        <asp:ListItem Value="5" >Cancelled</asp:ListItem>
-                                        <asp:ListItem Value="6" >To be run</asp:ListItem>
-                                        <asp:ListItem Value="7" >UBT</asp:ListItem>
-                                    </asp:DropDownList>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-
-                            <asp:TemplateField HeaderText="Punten" SortExpression="Punten">
-                                <EditItemTemplate>
-                                    <asp:DropDownList ID="ddlPunten" runat="server" DataValueField="Punten" SelectedValue='<%# Bind("Punten") %>' CssClass="ddlPunten-style">
-                                        <asp:ListItem Value="0" >0</asp:ListItem>
-                                        <asp:ListItem Value="1" >1</asp:ListItem>
-                                        <asp:ListItem Value="2" >2</asp:ListItem>
-                                    </asp:DropDownList>
-                                </EditItemTemplate>
-                                <ItemTemplate>
-                                    <asp:DropDownList ID="ddlPunten" runat="server" DataValueField="Punten" SelectedValue='<%# Bind("Punten") %>' Enabled="false" CssClass="ddlPunten-style">
-                                        <asp:ListItem Value="0" >0</asp:ListItem>
-                                        <asp:ListItem Value="1" >1</asp:ListItem>
-                                        <asp:ListItem Value="2" >2</asp:ListItem>
-                                    </asp:DropDownList>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-
-                            <asp:TemplateField HeaderText="Tijd" SortExpression="Tijd" >
-                                <EditItemTemplate>
-                                    <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Tijd") %>' type="number" CssClass="TijdTextbox-style"></asp:TextBox>
-                                </EditItemTemplate>
-                                <ItemTemplate>
-                                    <asp:Label ID="Label3" runat="server" Text='<%# Bind("Tijd") %>' CssClass="TijdTextbox-style"></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
-
-                            <asp:CommandField ShowEditButton="True" />
-
-                        </Columns>
-                    </asp:GridView>
-
-
-
 
         <asp:SqlDataSource 
             ID="SqlDataSource1" 
@@ -715,6 +594,7 @@ SELECT  [HeatID]
         ,[Hond4]
         ,[Hond5]
         ,[Hond6]
+        ,IsNull([Error], 0) as [Error]
 FROM    [FlyFormHeat] 
 WHERE   [RaceID] = @RaceID 
 AND BaankleurID = 1 
@@ -767,6 +647,7 @@ SELECT  [HeatID]
         ,[Hond4]
         ,[Hond5]
         ,[Hond6]
+        ,IsNull([Error], 0) as [Error]
 FROM    [FlyFormHeat] 
 WHERE   [RaceID] = @RaceID 
 AND BaankleurID = 2 
@@ -809,11 +690,6 @@ where  HeatID                 = @HeatID">
                 <asp:ControlParameter ControlID="FormView1" DefaultValue="11763" Name="RaceID" PropertyName="SelectedValue" Type="Int32" />
             </SelectParameters>
         </asp:SqlDataSource>
-
-
-        <asp:SqlDataSource ID="SqlDataSource5" runat="server"></asp:SqlDataSource>
-
-
 
     </form>
 </body>

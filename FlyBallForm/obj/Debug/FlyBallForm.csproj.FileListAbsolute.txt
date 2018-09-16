@@ -39,7 +39,6 @@ C:\Users\theo_\Source\Repos\FlyBallForm\FlyBallForm\bin\Newtonsoft.Json.xml
 C:\Users\theo_\Source\Repos\FlyBallForm\FlyBallForm\bin\System.Net.Http.Formatting.xml
 C:\Users\theo_\Source\Repos\FlyBallForm\FlyBallForm\bin\System.Web.Http.xml
 C:\Users\theo_\Source\Repos\FlyBallForm\FlyBallForm\bin\System.Web.Http.WebHost.xml
-C:\Users\theo_\Source\Repos\FlyBallForm\FlyBallForm\obj\Debug\FlyBallForm.csprojResolveAssemblyReference.cache
 C:\Users\theo_\Source\Repos\FlyBallForm\FlyBallForm\obj\Debug\FlyBallForm.dll.licenses
 C:\Users\theo_\Source\Repos\FlyBallForm\FlyBallForm\obj\Debug\FlyBallForm.dll
 C:\Users\theo_\Source\Repos\FlyBallForm\FlyBallForm\obj\Debug\FlyBallForm.pdb
@@ -90,3 +89,6 @@ C:\Users\tek13173\Source\Repos\FlyBallForm\FlyBallForm\obj\Debug\FlyBallForm.csp
 C:\Users\tek13173\Source\Repos\FlyBallForm\FlyBallForm\obj\Debug\FlyBallForm.csproj.CopyComplete
 C:\Users\tek13173\Source\Repos\FlyBallForm\FlyBallForm\obj\Debug\FlyBallForm.dll
 C:\Users\tek13173\Source\Repos\FlyBallForm\FlyBallForm\obj\Debug\FlyBallForm.pdb
+C:\Users\theo_\Source\Repos\FlyBallForm\FlyBallForm\obj\Debug\FlyBallForm.csprojAssemblyReference.cache
+C:\Users\theo_\Source\Repos\FlyBallForm\FlyBallForm\obj\Debug\FlyBallForm.csproj.CoreCompileInputs.cache
+C:\Users\theo_\Source\Repos\FlyBallForm\FlyBallForm\obj\Debug\FlyBallForm.csproj.CopyComplete

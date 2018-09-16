@@ -21,7 +21,7 @@ namespace FlyBallForm.Controllers
         {
             string conStr = ConfigurationManager.ConnectionStrings["FlyFormConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(conStr);
-            SqlCommand com = new SqlCommand("SELECT * FROM FlyFormHeat ", con);
+            SqlCommand com = new SqlCommand("SELECT HeatID, RaceID, HeatNr, BaanKleurID, TeamID, Tijd, ResultaatID, Punten, Hond1, Hond2, Hond3, Hond4, Hond5, Hond6, convert(varchar(20), ChangeDT, 120) as ChangeDT FROM FlyFormHeat ", con);
             SqlDataAdapter da = new SqlDataAdapter(com);
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -53,7 +53,7 @@ namespace FlyBallForm.Controllers
 
             string conStr = ConfigurationManager.ConnectionStrings["FlyFormConnectionString"].ConnectionString;
             SqlConnection con = new SqlConnection(conStr);
-            SqlCommand com = new SqlCommand("SELECT * FROM FlyFormHeat WHERE HeatID = @HeatID", con);
+            SqlCommand com = new SqlCommand("SELECT HeatID, RaceID, HeatNr, BaanKleurID, TeamID, Tijd, ResultaatID, Punten, Hond1, Hond2, Hond3, Hond4, Hond5, Hond6, convert(varchar(20), ChangeDT, 120) as ChangeDT FROM FlyFormHeat WHERE HeatID = @HeatID", con);
             com.Parameters.AddWithValue("@HeatID", id);
             SqlDataAdapter da = new SqlDataAdapter(com);
             DataSet ds = new DataSet();
